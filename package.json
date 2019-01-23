@@ -1,0 +1,10 @@
+{
+  "name": "custom-function-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Davide <davide.vernassa@eng.it>",
+  "license": "MIT",
+  "dependencies": {
+    "blockly": "^1.0.0"
+  }
+}
