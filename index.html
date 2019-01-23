@@ -5,29 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Test Blockly Function Generator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
     <script src="./node_modules/blockly/blockly_compressed.js"></script>
     <script src="./node_modules/blockly/blocks_compressed.js"></script>
+    <script src="./node_modules/blockly/javascript_compressed.js"></script>
 
     <script src="./node_modules/blockly/msg/js/en.js"></script>
+
+    <script src="./functions/test.js"></script>
+    <script src="./functions/day.js"></script>
 
 </head>
 <body>
     <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
     <xml id="toolbox" style="display: none">
-        <block type="controls_if"></block>
-        <block type="controls_repeat_ext"></block>
-        <block type="logic_compare"></block>
-        <block type="math_number"></block>
-        <block type="math_arithmetic"></block>
+        <block type="string_length"></block>
         <block type="text"></block>
-        <block type="text_print"></block>
-      </xml>
-
+        <block type="day"></block>
+    </xml>
+    <button onclick="showCode()">asd</button>
       <script>
-        var workspace = Blockly.inject('blocklyDiv',
-            {toolbox: document.getElementById('toolbox')});
+        var workspace = Blockly.inject('blocklyDiv', {toolbox: document.getElementById('toolbox')});
+        
+        function showCode() {
+            Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+            var code = Blockly.JavaScript.workspaceToCode(workspace);
+            alert(code);
+        }
+        
       </script>
 </body>
 </html>
